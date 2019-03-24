@@ -45,40 +45,38 @@ var getAllDirectories = function getAllDirectories(folder) {
     return getSubDirectories(folder);
 };
 
-var getAllFilelists = function getAllFilelists(directories) {
-    return Promise.all(directories.map(function (directory) {
-        return getSubdirectoryFiles(directory);
-    })).then(function (fileLists) {
-        return {
-            directories: directories,
-            fileLists: fileLists
-        };
-    });
+var addFilelistsToDirectories = function addFilelistsToDirectories() {
+    return function (directories) {
+        return Promise.all(directories.map(function (directory) {
+            return getSubdirectoryFiles(directory);
+        })).then(function (fileLists) {
+            return {
+                directories: directories,
+                fileLists: fileLists
+            };
+        });
+    };
 };
 
-var fileListsToPlaylists = function fileListsToPlaylists(_ref) {
-    var directories = _ref.directories,
-        fileLists = _ref.fileLists,
-        folder = _ref.folder,
+var convertToPlaylists = function convertToPlaylists(_ref) {
+    var folder = _ref.folder,
         url = _ref.url;
-    return directories.map(function (directory, index) {
-        return {
-            playlist: formatName(directory.replace(folder, '')),
-            tracks: fileLists[index].map(function (file) {
-                return getTrackInfo({ url: url, filename: file.replace(directory, '') });
-            })
-        };
-    });
+    return function (_ref2) {
+        var directories = _ref2.directories,
+            fileLists = _ref2.fileLists;
+        return directories.map(function (directory, index) {
+            return {
+                playlist: formatName(directory.replace(folder, '')),
+                tracks: fileLists[index].map(function (file) {
+                    return getTrackInfo({ url: url, filename: file.replace(directory, '') });
+                })
+            };
+        });
+    };
 };
 
-module.exports = function (_ref2) {
-    var folder = _ref2.folder,
-        url = _ref2.url;
-    return getAllDirectories(folder).then(function (directories) {
-        return getAllFilelists(directories);
-    }).then(function (_ref3) {
-        var directories = _ref3.directories,
-            fileLists = _ref3.fileLists;
-        return fileListsToPlaylists({ directories: directories, fileLists: fileLists, folder: folder, url: url });
-    });
+module.exports = function (_ref3) {
+    var folder = _ref3.folder,
+        url = _ref3.url;
+    return getAllDirectories(folder).then(addFilelistsToDirectories()).then(convertToPlaylists({ folder: folder, url: url }));
 };

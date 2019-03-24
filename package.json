@@ -14,7 +14,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/herczeg6179//dmtp-folder-to-playlist-reader.git"
+        "url": "git+https://github.com/herczeg6179/dmtp-folder-to-playlist-reader.git"
     },
     "keywords": [
         "dm tool music player"
@@ -22,9 +22,9 @@
     "author": "herczegmate",
     "license": "GPL-3.0",
     "bugs": {
-        "url": "https://github.com/herczeg6179//dmtp-folder-to-playlist-reader/issues"
+        "url": "https://github.com/herczeg6179/dmtp-folder-to-playlist-reader/issues"
     },
-    "homepage": "https://github.com/herczeg6179//dmtp-folder-to-playlist-reader#readme",
+    "homepage": "https://github.com/herczeg6179/dmtp-folder-to-playlist-reader#readme",
     "dependencies": {
         "aws-sdk": "^2.427.0"
     },
