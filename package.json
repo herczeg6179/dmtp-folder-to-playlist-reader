@@ -25,7 +25,9 @@
         "url": "https://github.com/herczeg6179/dtmp-playlist-generator/issues"
     },
     "homepage": "https://github.com/herczeg6179/dtmp-playlist-generator#readme",
-    "dependencies": {},
+    "dependencies": {
+        "aws-sdk": "^2.427.0"
+    },
     "devDependencies": {
         "ajv": "^6.9.1",
         "babel-cli": "^6.26.0",
