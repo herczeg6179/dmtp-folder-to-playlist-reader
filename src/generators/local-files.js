@@ -18,13 +18,13 @@ const getSubdirectoryFiles = subdirectory =>
 
 const getAllDirectories = folder => getSubDirectories(folder);
 
-const getAllFilelists = directories =>
+const addFilelistsToDirectories = () => directories =>
     Promise.all(directories.map(directory => getSubdirectoryFiles(directory))).then(fileLists => ({
         directories,
         fileLists,
     }));
 
-const fileListsToPlaylists = ({ directories, fileLists, folder, url }) =>
+const convertToPlaylists = ({ folder, url }) => ({ directories, fileLists }) =>
     directories.map((directory, index) => ({
         playlist: formatName(directory.replace(folder, '')),
         tracks: fileLists[index].map(file => getTrackInfo({ url, filename: file.replace(directory, '') })),
@@ -32,5 +32,5 @@ const fileListsToPlaylists = ({ directories, fileLists, folder, url }) =>
 
 module.exports = ({ folder, url }) =>
     getAllDirectories(folder)
-        .then(directories => getAllFilelists(directories))
-        .then(({ directories, fileLists }) => fileListsToPlaylists({ directories, fileLists, folder, url }));
+        .then(addFilelistsToDirectories())
+        .then(convertToPlaylists({ folder, url }));
