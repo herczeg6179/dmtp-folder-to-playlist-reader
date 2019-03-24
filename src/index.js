@@ -2,6 +2,6 @@ const helpers = require('./helpers');
 
 module.exports = {
     ...helpers,
-    generateByLocalFiles: require('./generators/local-files'),
-    generateByS3Bucket: require('./generators/s3-bucket'),
+    generateByLocalFiles: require('./readers/local-files'),
+    generateByS3Bucket: require('./readers/s3-bucket'),
 };

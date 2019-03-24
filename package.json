@@ -1,5 +1,5 @@
 {
-    "name": "dtmp-playlist-generator",
+    "name": "dmtp-folder-to-playlist-reader",
     "version": "1.0.0",
     "description": "generates playlist data for the api serving the dm-tool-music-player",
     "main": "dist/index.js",
@@ -14,7 +14,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/herczeg6179/dtmp-playlist-generator.git"
+        "url": "git+https://github.com/herczeg6179//dmtp-folder-to-playlist-reader.git"
     },
     "keywords": [
         "dm tool music player"
@@ -22,9 +22,9 @@
     "author": "herczegmate",
     "license": "GPL-3.0",
     "bugs": {
-        "url": "https://github.com/herczeg6179/dtmp-playlist-generator/issues"
+        "url": "https://github.com/herczeg6179//dmtp-folder-to-playlist-reader/issues"
     },
-    "homepage": "https://github.com/herczeg6179/dtmp-playlist-generator#readme",
+    "homepage": "https://github.com/herczeg6179//dmtp-folder-to-playlist-reader#readme",
     "dependencies": {
         "aws-sdk": "^2.427.0"
     },

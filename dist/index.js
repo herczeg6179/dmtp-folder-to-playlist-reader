@@ -5,6 +5,6 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 var helpers = require('./helpers');
 
 module.exports = _extends({}, helpers, {
-    generateByLocalFiles: require('./generators/local-files'),
-    generateByS3Bucket: require('./generators/s3-bucket')
+    generateByLocalFiles: require('./readers/local-files'),
+    generateByS3Bucket: require('./readers/s3-bucket')
 });
