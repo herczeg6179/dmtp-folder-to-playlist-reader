@@ -1,0 +1,47 @@
+{
+    "name": "dtmp-playlist-generator",
+    "version": "1.0.0",
+    "description": "generates playlist data for the api serving the dm-tool-music-player",
+    "main": "dist/index.js",
+    "scripts": {
+        "publish": "git add dist && echo \"Since I have no intention of releasing to the npm registry for now, the dist folder is commited instead\"",
+        "build": "babel ./src -d ./dist",
+        "build:safe": "npm run lint && babel ./src -d ./dist",
+        "test": "printf \"No test implemented. Shame. \\xF0\\x9F\\x94\\x94\\x0A\" && exit 0",
+        "lint": "eslint src -c .eslintrc.json --ext js,json",
+        "format:fix": "pretty-quick --staged",
+        "format:fix:all": "pretty-quick"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/herczeg6179/dtmp-playlist-generator.git"
+    },
+    "keywords": [
+        "dm tool music player"
+    ],
+    "author": "herczegmate",
+    "license": "GPL-3.0",
+    "bugs": {
+        "url": "https://github.com/herczeg6179/dtmp-playlist-generator/issues"
+    },
+    "homepage": "https://github.com/herczeg6179/dtmp-playlist-generator#readme",
+    "dependencies": {},
+    "devDependencies": {
+        "ajv": "^6.9.1",
+        "babel-cli": "^6.26.0",
+        "babel-preset-env": "^1.7.0",
+        "eslint": "^5.15.2",
+        "eslint-config-prettier": "^4.0.0",
+        "eslint-config-standard": "^12.0.0",
+        "eslint-plugin-import": "^2.16.0",
+        "eslint-plugin-json": "^1.4.0",
+        "eslint-plugin-node": "^8.0.1",
+        "eslint-plugin-prettier": "^3.0.1",
+        "eslint-plugin-promise": "^4.0.1",
+        "eslint-plugin-standard": "^4.0.0",
+        "husky": "^1.3.1",
+        "npm-run-all": "^4.1.5",
+        "prettier-eslint-cli": "^4.7.1",
+        "pretty-quick": "^1.10.0"
+    }
+}

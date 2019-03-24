@@ -1,0 +1,6 @@
+{
+    "hooks": {
+        "pre-commit": "run-s format:fix lint build publish",
+        "pre-push": "npm run test"
+    }
+}
